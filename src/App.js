@@ -1,10 +1,14 @@
 import "./Global.css"
-import Header from "./components/header/Header";
+import { Header, Slidebar } from "./components";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <Header />
+
+      <div className="app__body">
+        <Slidebar />
+      </div>
     </div>
   );
 }
