@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './styles/slidebar.css'
 import SlidebarOption from './slidebarOptions/SlidebarOption'
 import { FiberManualRecord, CreateOutlined, InsertCommentOutlined, AddCircleOutlineOutlined, ExpandMoreOutlined, ExpandLessOutlined, FileCopyOutlined, AppsOutlined, PeopleAltOutlined, BookmarkBorderOutlined, InboxOutlined, DraftsOutlined } from '@material-ui/icons'
-import db from '../firebase'
+import db from '../../firebase'
 export default function Slidebar() {
 
     const [channels, setChannels] = useState([])
