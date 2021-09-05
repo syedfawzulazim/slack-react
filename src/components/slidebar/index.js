@@ -3,9 +3,12 @@ import './styles/slidebar.css'
 import SlidebarOption from './slidebarOptions/SlidebarOption'
 import { FiberManualRecord, CreateOutlined, InsertCommentOutlined, AddCircleOutlineOutlined, ExpandMoreOutlined, ExpandLessOutlined, FileCopyOutlined, AppsOutlined, PeopleAltOutlined, BookmarkBorderOutlined, InboxOutlined, DraftsOutlined } from '@material-ui/icons'
 import db from '../../firebase'
+import { useStateValue } from '../../stateProvider/StateProvider'
+
 export default function Slidebar() {
 
     const [channels, setChannels] = useState([])
+    const [{ user }] = useStateValue();
 
     useEffect(() => {
         db.collection('rooms').onSnapshot(snapshot => {
@@ -24,7 +27,7 @@ export default function Slidebar() {
                     <h2>Slack Project</h2>
                     <h3>
                         <FiberManualRecord />
-                        Syed Fawzul Azim
+                        {user?.displayName}
                     </h3>
                 </div>
                 <CreateOutlined />
@@ -39,7 +42,7 @@ export default function Slidebar() {
             <SlidebarOption Icon={ExpandLessOutlined} title="Show less" />
             <hr />
             <SlidebarOption Icon={ExpandMoreOutlined} title="Channels" />
-            <SlidebarOption Icon={AddCircleOutlineOutlined} title="Add Channel" />
+            <SlidebarOption Icon={AddCircleOutlineOutlined} title="Add Channel" addChannelOption />
 
             {
                 channels.map((channel) => (

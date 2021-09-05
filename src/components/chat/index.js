@@ -4,6 +4,7 @@ import { Messages } from '../../components'
 import { useParams } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
 import { StarBorderOutlined, InfoOutlined } from '@material-ui/icons';
+import { ChatInput } from '../../components'
 
 export default function Chat() {
     const { roomId } = useParams();
@@ -55,8 +56,8 @@ export default function Chat() {
                         userImage={userImage}
                     />
                 ))}
-
             </div>
+            <ChatInput channelName={roomDetails?.name} channelId={roomId} />
         </div>
     )
 }
