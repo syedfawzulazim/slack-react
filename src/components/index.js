@@ -1,3 +1,5 @@
 export { default as Header } from './header'
 export { default as Slidebar } from './slidebar'
 export { default as Chat } from './chat'
+export { default as Messages } from './messages'
+export { default as Login } from './login'
